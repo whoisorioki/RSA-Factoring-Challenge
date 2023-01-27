@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+def factorize(n):
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return (i, int(n / i))
+    return (n, 1)
+
+import sys
+filename = sys.argv[1]
+with open(filename) as f:
+    for line in f:
+        n = int(line.strip())
+        p, q = factorize(n)
+        print(f"{n}={p}*{q}")
